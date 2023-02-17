@@ -1,0 +1,14 @@
+{
+  "name": "bzmb-talk",
+  "version": "1.0.0",
+  "description": "A minimal example plugin for bzBond server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Beezwax",
+  "license": "ISC",
+  "dependencies": {
+    "@google-cloud/text-to-speech": "^4.2.1"
+  }
+}
