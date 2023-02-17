@@ -10,12 +10,12 @@ const talkSchema = {
   },
 };
 
-async function bztalk(fastify) {
-  fastify.get("/bzmb-talk", { schema: talkSchema }, (req, res) => {
+async function bzbmTalk(fastify) {
+  fastify.post("/bzmb-talk", { schema: talkSchema }, async (req, res) => {
     const { text } = req.body;
-    const base64Mp3 = talk(text);
+    const base64Mp3 = await talk(text);
     return base64Mp3;
   });
 }
 
-module.exports = { plugin: bztalk };
+module.exports = { plugin: bzbmTalk };
