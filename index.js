@@ -3,17 +3,16 @@ const talk = require("./talk.js");
 const talkSchema = {
   body: {
     type: "object",
-    oneOf: [
-      {required: ["text"]},
-      {required: ["ssmlText"]},
-    ],
     properties: {
       text: { type: "string", minLength: 1 },
       ssmlText: { type: "string", minLength: 1 },
       languageCode: { type: "string" },
       gender: { type: "string" }
-
     },
+    oneOf: [
+      {required: ["text"]},
+      {required: ["ssmlText"]}
+    ],
   },
 };
 
