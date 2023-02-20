@@ -5,14 +5,16 @@ const textToSpeech = require('@google-cloud/text-to-speech');
 process.env['GOOGLE_APPLICATION_CREDENTIALS'] = "/var/www/bzbond-server/sak.json";
 // process.env['GOOGLE_APPLICATION_CREDENTIALS'] = "sak.json";
 
-const talk = async (text) => {
+const talk = async (text, languageCode, gender) => {
   // Creates a client
   const client = new textToSpeech.TextToSpeechClient();
   // Construct the request
+  languageCode = languageCode ? languageCode : "en-US";
+  const ssmlGender = gender ? gender : "NEUTRAL";
   const request = {
-    input: {text: text},
+    input: {text},
     // Select the language and SSML voice gender (optional)
-    voice: {languageCode: 'en-US', ssmlGender: 'NEUTRAL'},
+    voice: {languageCode, ssmlGender},
     // select the type of audio encoding
     audioConfig: {audioEncoding: 'MP3'},
   };
