@@ -27,7 +27,7 @@ async function bzbmTalk(fastify) {
         .send(base64Mp3);
     } catch (error) {
       res
-        .send(error);
+        .send("test");
     }
     // const base64Mp3 = await talk(text, ssml, languageCode, gender, name);
     // return base64Mp3;
