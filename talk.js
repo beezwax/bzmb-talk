@@ -33,7 +33,7 @@ const talk = async (text, ssml, languageCode, gender, name) => {
     const [response] = await client.synthesizeSpeech(request);
     return response.audioContent.toString('base64');
   } catch (error) {
-    return error;
+    throw error;
   }
 };
 
