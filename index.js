@@ -24,7 +24,6 @@ async function bzbmTalk(fastify) {
       const base64Mp3 = await talk(text, ssml, languageCode, gender, name);
       res
         .code(200)
-        .header("Content-Type", "audio/mpeg")
         .send(base64Mp3);
     } catch (error) {
       res
