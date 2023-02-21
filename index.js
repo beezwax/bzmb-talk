@@ -20,8 +20,20 @@ const talkSchema = {
 async function bzbmTalk(fastify) {
   fastify.post("/bzmb-talk", { schema: talkSchema }, async (req, res) => {
     const { text, ssml, languageCode, gender, name } = req.body;
-    const base64Mp3 = await talk(text, ssml, languageCode, gender, name);
-    return base64Mp3;
+    try {
+      const base64Mp3 = await talk(text, ssml, languageCode, gender, name);
+      res
+        .code(200)
+        .header("Content-Type", "audio/mpeg")
+        .send(base64Mp3);
+    } catch (error) {
+      res
+        .code(500)
+        .header("Content-Type", "application/json; charset=utf-8")
+        .send(error);
+    }
+    // const base64Mp3 = await talk(text, ssml, languageCode, gender, name);
+    // return base64Mp3;
   });
 }
 

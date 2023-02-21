@@ -29,9 +29,12 @@ const talk = async (text, ssml, languageCode, gender, name) => {
   };
 
   // Performs the text-to-speech request
-  const [response] = await client.synthesizeSpeech(request);
-
-  return response.audioContent.toString('base64');
+  try {
+    const [response] = await client.synthesizeSpeech(request);
+    return response.audioContent.toString('base64');
+  } catch (error) {
+    return error;
+  }
 };
 
 module.exports = talk;
