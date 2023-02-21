@@ -8,17 +8,22 @@ const talk = async (text, ssml, languageCode, gender, name) => {
   const client = new textToSpeech.TextToSpeechClient();
   // Construct the request
   languageCode = languageCode ? languageCode : "en-US";
-  const ssmlGender = gender;
   const input = {};
   if (text) {
     input.text = text;
   } else if (ssml){
     input.ssml = ssml;
   }
+  const voice = {languageCode};
+  if(name) {
+    voice.name = name;
+  } else if(gender) {
+    voice.ssmlGender = gender;
+  }
   const request = {
     input,
     // language and SSML voice gender (optional), voice name
-    voice: {languageCode, ssmlGender, name},
+    voice,
     // type of audio encoding
     audioConfig: {audioEncoding: 'MP3'},
   };
