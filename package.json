@@ -1,7 +1,7 @@
 {
   "name": "bzmb-talk",
   "version": "1.0.0",
-  "description": "A minimal example plugin for bzBond server",
+  "description": "A bzBond Microbond to integrate with the Google Text to Speech API",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

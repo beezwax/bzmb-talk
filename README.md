@@ -6,9 +6,9 @@ A [bzBond-server](https://github.com/beezwax/bzBond/tree/main/packages/bzBond-se
 
 On a server with bzBond-server installed run the following command:
 
-`/var/www/bzbond-server/bin/install-plugin.sh bzmb-chat beezwax/bzmb-talk`
+`/var/www/bzbond-server/bin/install-microbond.sh bzmb-chat beezwax/bzmb-talk`
 
-See the [bzBond-server documentation](https://github.com/beezwax/bzBond/tree/main/packages/bzBond-server#installing-plugins) for more details on installation.
+See the [bzBond-server documentation](https://github.com/beezwax/bzBond/tree/main/packages/bzBond-server#installing-microbonds) for more details on installation.
 
 ### Authentication
 

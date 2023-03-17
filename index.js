@@ -17,7 +17,7 @@ const talkSchema = {
   },
 };
 
-async function bzbmTalk(fastify) {
+async function bzmbTalk(fastify) {
   fastify.post("/bzmb-talk", { schema: talkSchema }, async (req, res) => {
     const { text, ssml, languageCode, gender, name } = req.body;
     try {
@@ -29,9 +29,7 @@ async function bzbmTalk(fastify) {
       res
         .send(error);
     }
-    // const base64Mp3 = await talk(text, ssml, languageCode, gender, name);
-    // return base64Mp3;
   });
 }
 
-module.exports = { plugin: bzbmTalk };
+module.exports = { microbond: bzmbTalk };
